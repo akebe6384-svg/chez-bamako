@@ -167,7 +167,7 @@
   <section class="location">
     <h2>📍 Près de chez vous</h2>
     <p>Découvrez les services disponibles dans votre zone.</p>
-    <button>Utiliser ma position</button>
+    <button onclick="localiser()">📍 Utiliser ma position</button>
   </section>
 
   <h2>Catégories</h2>
@@ -228,7 +228,31 @@
         <button>📍 Voir</button>
         <button>📞 Contacter</button>
       </div>
-    </article>
+    </article><script>
+function localiser() {
+  if (!navigator.geolocation) {
+    alert("La localisation n'est pas disponible sur cet appareil.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      alert(
+        "Position trouvée !\nLatitude : " +
+        latitude.toFixed(5) +
+        "\nLongitude : " +
+        longitude.toFixed(5)
+      );
+    },
+    function() {
+      alert("Autorisation de localisation refusée ou impossible.");
+    }
+  );
+}
+    </script>
 
   </section>
 

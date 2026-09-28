@@ -13,106 +13,20 @@
       font-family: Arial, sans-serif;
     }
 
-    <script>
-function rechercher() {
-  const recherche = document.getElementById("search").value.toLowerCase();
+  <script>
+document.getElementById("search").addEventListener("input", function() {
+  const recherche = this.value.toLowerCase().trim();
   const categories = document.querySelectorAll(".category");
 
   categories.forEach(function(category) {
-    const texte = category.textContent.toLowerCase();
+    const texte = category.innerText.toLowerCase();
 
-    if (texte.includes(recherche)) {
-      category.style.display = "block";
-    } else {
-      category.style.display = "none";
-    }
+    category.style.display =
+      texte.includes(recherche) ? "block" : "none";
   });
-}
-</script>body {
-      background: #f5f6f8;
-      color: #222;
-    }
-
-    header {
-      background: #111827;
-      color: white;
-      padding: 25px 18px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      font-size: 15px;
-      opacity: 0.9;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .search {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      font-size: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      margin-bottom: 15px;
-      font-size: 21px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    .category {
-      background: white;
-      padding: 20px 10px;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      cursor: pointer;
-    }
-
-    .category span {
-      display: block;
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-    .welcome {
-      background: white;
-      padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    }
-
-    .welcome p {
-      line-height: 1.6;
-      color: #555;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-      font-size: 14px;
-    }
-  </style>
-</head>
+});
+</script>  
+      
 
 <body>
 

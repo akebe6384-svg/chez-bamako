@@ -13,7 +13,22 @@
       font-family: Arial, sans-serif;
     }
 
-    body {
+    <script>
+function rechercher() {
+  const recherche = document.getElementById("search").value.toLowerCase();
+  const categories = document.querySelectorAll(".category");
+
+  categories.forEach(function(category) {
+    const texte = category.textContent.toLowerCase();
+
+    if (texte.includes(recherche)) {
+      category.style.display = "block";
+    } else {
+      category.style.display = "none";
+    }
+  });
+}
+</script>body {
       background: #f5f6f8;
       color: #222;
     }
@@ -108,64 +123,14 @@
 
   <main class="container">
 
-    <input
-      class="search"
-      type="text"
-      placeholder="🔎 Rechercher un commerce ou un service..."
-    >
-
-    <h2>Catégories</h2>
-
-    <div class="categories">
-
-      <div class="category">
-        <span>🍔</span>
-        Restaurants
-      </div>
-
-      <div class="category">
-        <span>🛒</span>
-        Boutiques
-      </div>
-
-      <div class="category">
-        <span>💇</span>
-        Beauté
-      </div>
-
-      <div class="category">
-        <span>🔧</span>
-        Services
-      </div>
-
-      <div class="category">
-        <span>🏨</span>
-        Hôtels
-      </div>
-
-      <div class="category">
-        <span>🚗</span>
-        Transport
-      </div>
-
-    </div>
-
-    <div class="welcome">
-      <h2>Bienvenue 👋</h2>
-      <p>
-        Chez-Bamako vous aide à découvrir des commerces,
-        services et opportunités autour de vous.
-      </p>
-    </div>
-
-  </main>
-
-  <footer>
-    © 2026 Chez-Bamako
-  </footer>
-
-</body>
-  </html>
+  <input
+  id="search"
+  class="search"
+  type="text"
+  placeholder="🔎 Rechercher un commerce ou un service..."
+  onkeyup="rechercher()"
+>
+      
 
 
 

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Chez-Bamako</title>
 
   <style>
@@ -10,41 +11,232 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
     }
 
-  <script>
-document.getElementById("search").addEventListener("input", function() {
-  const recherche = this.value.toLowerCase().trim();
-  const categories = document.querySelectorAll(".category");
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #17202a;
+    }
 
-  categories.forEach(function(category) {
-    const texte = category.innerText.toLowerCase();
+    header {
+      background: #111827;
+      color: white;
+      padding: 25px 18px;
+      text-align: center;
+    }
 
-    category.style.display =
-      texte.includes(recherche) ? "block" : "none";
-  });
-});
-</script>  
-      
+    header h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px 0;
+    }
+
+    .search {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 22px;
+      outline: none;
+    }
+
+    .location {
+      background: white;
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+    }
+
+    .location h2 {
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .location p {
+      color: #666;
+      margin-bottom: 14px;
+    }
+
+    .location button {
+      background: #111827;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 9px;
+      font-size: 15px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .category {
+      background: white;
+      padding: 20px 10px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    }
+
+    .category .icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .places {
+      display: grid;
+      gap: 14px;
+    }
+
+    .place {
+      background: white;
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    }
+
+    .place h3 {
+      margin-bottom: 7px;
+    }
+
+    .place p {
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .buttons button {
+      flex: 1;
+      padding: 11px;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
 
 <body>
 
-  <header>
-    <h1>Chez-Bamako</h1>
-    <p>Découvrez ce qui se trouve autour de vous</p>
-  </header>
+<header>
+  <h1>Chez-Bamako</h1>
+  <p>Découvrez les commerces et services autour de vous</p>
+</header>
 
-  <main class="container">
+<main class="container">
 
   <input
-  id="search"
-  class="search"
-  type="text"
-  placeholder="🔎 Rechercher un commerce ou un service..."
-  onkeyup="rechercher()"
->
-      
+    class="search"
+    type="search"
+    placeholder="🔎 Rechercher un commerce ou un service"
+  >
 
+  <section class="location">
+    <h2>📍 Près de chez vous</h2>
+    <p>Découvrez les services disponibles dans votre zone.</p>
+    <button>Utiliser ma position</button>
+  </section>
 
+  <h2>Catégories</h2>
 
+  <section class="categories">
+
+    <div class="category">
+      <span class="icon">🍔</span>
+      Restaurants
+    </div>
+
+    <div class="category">
+      <span class="icon">🛒</span>
+      Boutiques
+    </div>
+
+    <div class="category">
+      <span class="icon">💇</span>
+      Beauté
+    </div>
+
+    <div class="category">
+      <span class="icon">🔧</span>
+      Services
+    </div>
+
+    <div class="category">
+      <span class="icon">🏨</span>
+      Hôtels
+    </div>
+
+    <div class="category">
+      <span class="icon">🚗</span>
+      Transport
+    </div>
+
+  </section>
+
+  <h2>À découvrir</h2>
+
+  <section class="places">
+
+    <article class="place">
+      <h3>Commerce local</h3>
+      <p>Découvrez les commerces disponibles près de votre zone.</p>
+
+      <div class="buttons">
+        <button>📍 Voir</button>
+        <button>📞 Contacter</button>
+      </div>
+    </article>
+
+    <article class="place">
+      <h3>Service local</h3>
+      <p>Trouvez rapidement un service dont vous avez besoin.</p>
+
+      <div class="buttons">
+        <button>📍 Voir</button>
+        <button>📞 Contacter</button>
+      </div>
+    </article>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Chez-Bamako — Tous droits réservés
+</footer>
+
+</body>
+    </html>

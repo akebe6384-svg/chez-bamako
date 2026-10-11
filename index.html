@@ -267,5 +267,5 @@ function localiser() {
 function contacter() {
   alert("La fonction de contact sera bientôt disponible.");
 }
-</script></body>
+</scriptdocument.querySelectorAll('.category').forEach(function(categorie) { categorie.style.cursor = 'pointer'; categorie.addEventListener('click', function() { const nom = categorie.innerText.toLowerCase(); const commerces = document.querySelectorAll('.place'); let trouve = false; commerces.forEach(function(commerce) { const texte = commerce.innerText.toLowerCase(); const correspond = (nom.includes('boutiques') && texte.includes('boutique')) || (nom.includes('restaurants') && texte.includes('restaurant')) || (nom.includes('beauté') && texte.includes('beauté')) || (nom.includes('services') && texte.includes('service')) || (nom.includes('hôtels') && texte.includes('hôtel')) || (nom.includes('transport') && texte.includes('transport')); commerce.style.display = correspond ? '' : 'none'; if (correspond) trouve = true; }); if (!trouve) { alert('Aucun commerce dans cette catégorie pour le moment.'); } }); }); ></body>
     </html>
